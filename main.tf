@@ -100,3 +100,13 @@ module "security_groups" {
   project_name = var.project_name
   environment  = var.environment
 }
+
+# EKS Module
+module "eks" {
+  source             = "./modules/eks"
+  vpc_id             = aws_vpc.main.id
+  private_subnet_ids = [aws_subnet.private_az1.id, aws_subnet.private_az2.id]
+  flask_sg_id        = module.security_groups.flask_sg_id
+  project_name       = var.project_name
+  environment        = var.environment
+}

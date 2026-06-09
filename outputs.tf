@@ -27,3 +27,19 @@ output "rds_sg_id" {
   description = "RDS Security Group ID"
   value       = module.security_groups.rds_sg_id
 }
+
+output "eks_cluster_name" {
+  description = "EKS cluster name"
+  value       = module.eks.cluster_name
+}
+
+output "eks_cluster_endpoint" {
+  description = "EKS cluster API endpoint"
+  value       = module.eks.cluster_endpoint
+}
+
+output "eks_cluster_certificate_authority" {
+  description = "EKS cluster certificate authority"
+  value       = module.eks.cluster_certificate_authority
+  sensitive   = true
+}

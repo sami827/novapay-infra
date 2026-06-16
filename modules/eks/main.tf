@@ -65,6 +65,8 @@ resource "aws_iam_role_policy_attachment" "eks_cni_policy" {
 }
 
 # EKS Cluster
+#tfsec:ignore:aws-eks-encrypt-secrets -- KMS key out of scope for lab cost control
+#tfsec:ignore:aws-eks-enable-control-plane-logging -- CloudWatch logging out of scope for lab cost control
 resource "aws_eks_cluster" "main" {
   name     = "${var.project_name}-${var.environment}"
   role_arn = aws_iam_role.eks_cluster.arn
@@ -76,6 +78,7 @@ resource "aws_eks_cluster" "main" {
     endpoint_private_access = true
     endpoint_public_access  = false
   }
+
 
   depends_on = [
     aws_iam_role_policy_attachment.eks_cluster_policy

@@ -1,0 +1,1 @@
+TF_VAR_db_username=novapay_admin TF_VAR_db_password=lab_temp_pass_123 terraform plan

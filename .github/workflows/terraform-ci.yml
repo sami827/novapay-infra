@@ -46,3 +46,6 @@ jobs:
         env:
           TF_VAR_db_username: ${{ secrets.DB_USERNAME }}
           TF_VAR_db_password: ${{ secrets.DB_PASSWORD }}
+
+      - name: tfsec security scan
+        uses: aquasecurity/tfsec-action@v1.0.3

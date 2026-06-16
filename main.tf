@@ -110,3 +110,14 @@ module "eks" {
   project_name       = var.project_name
   environment        = var.environment
 }
+
+# RDS Module
+module "rds" {
+  source             = "./modules/rds"
+  private_subnet_ids = [aws_subnet.private_az1.id, aws_subnet.private_az2.id]
+  rds_sg_id          = module.security_groups.rds_sg_id
+  db_username        = var.db_username
+  db_password        = var.db_password
+  project_name       = var.project_name
+  environment        = var.environment
+}

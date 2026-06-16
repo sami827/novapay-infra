@@ -21,3 +21,20 @@ variable "environment" {
   type        = string
   default     = "dev"
 }
+
+variable "db_username" {
+  description = "RDS master username"
+  type        = string
+}
+
+variable "db_password" {
+  description = "RDS master password"
+  type        = string
+  sensitive   = true
+}
+
+variable "multi_az" {
+  description = "Enable Multi-AZ deployment for RDS"
+  type        = bool
+  default     = true
+}

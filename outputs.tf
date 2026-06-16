@@ -43,3 +43,13 @@ output "eks_cluster_certificate_authority" {
   value       = module.eks.cluster_certificate_authority
   sensitive   = true
 }
+
+output "rds_endpoint" {
+  description = "RDS instance endpoint"
+  value       = module.rds.db_endpoint
+}
+
+output "rds_db_name" {
+  description = "RDS database name"
+  value       = module.rds.db_name
+}
